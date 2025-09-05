@@ -157,7 +157,7 @@ export const validateBalance = (
 export const validateNetwork = (
   fromToken: Token | null,
   toToken: Token | null,
-  currentNetwork: string
+  _currentNetwork: string
 ): ValidationError | null => {
   if (!fromToken || !toToken) {
     return null;

@@ -37,11 +37,6 @@ export const TokenIcon: React.FC<TokenIconProps> = ({
     lg: 'w-16 h-16',
   };
 
-  const textSizeClasses = {
-    sm: 'text-xs',
-    md: 'text-sm',
-    lg: 'text-base',
-  };
 
   return (
     <div

@@ -23,7 +23,7 @@ export const SwapForm: React.FC = () => {
   } = useSwap();
 
   const { getPriceInUSD } = usePrices();
-  const { isConnected, showWalletModal, setShowWalletModal } = useWallet();
+  const { showWalletModal, setShowWalletModal } = useWallet();
 
   const fromTokenError = validationErrors.find(e => e.field === 'fromToken' || e.field === 'amount');
   const toTokenError = validationErrors.find(e => e.field === 'toToken');

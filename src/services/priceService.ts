@@ -116,7 +116,7 @@ class PriceService {
     };
   }
 
-  private calculatePriceImpact(fromSymbol: string, toSymbol: string, amount: number): number {
+  private calculatePriceImpact(_fromSymbol: string, _toSymbol: string, amount: number): number {
     // Simplified price impact calculation
     // In real DEX, this would be based on liquidity pools
     const baseImpact = 0.1;
