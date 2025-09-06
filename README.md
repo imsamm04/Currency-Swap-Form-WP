@@ -108,6 +108,21 @@ npm run preview
 
 # Run ESLint
 npm run lint
+
+# Run unit tests
+npm test
+
+# Run tests with watch mode
+npm test -- --watch
+
+# Run tests once (no watch)
+npm test -- --run
+
+# Run tests with coverage report
+npm test -- --coverage
+
+# Run specific test file
+npm test -- useToast.test.ts
 ```
 
 ## 🚀 Getting Started
@@ -124,6 +139,23 @@ npm run lint
 
 3. **Open your browser:**
    Navigate to `http://localhost:5173` (or the port shown in terminal)
+
+## 🧪 Testing
+
+Project uses **Vitest** with **React Testing Library**.
+
+```bash
+# Run tests
+npm test
+
+# Watch mode
+npm test -- --watch
+
+# Coverage report
+npm test -- --coverage
+```
+
+**Test coverage**: Custom hooks, UI components, and component integration.
 
 ## 📖 Usage Guide
 
@@ -161,9 +193,18 @@ The project uses TailwindCSS with a custom design system:
 - `tailwindcss` - Utility-first CSS framework
 - `vite` - Fast build tool and dev server
 
+### Testing
+- `vitest` - Fast unit test framework
+- `@testing-library/react` - React component testing utilities
+- `@testing-library/jest-dom` - Custom Jest matchers for DOM
+- `@testing-library/user-event` - User interaction simulation
+- `jsdom` - DOM implementation for Node.js
+- `@types/jest` - Jest TypeScript definitions
+
 ## 🔧 Configuration Files
 
 - `vite.config.ts` - Vite configuration with React plugin
+- `vitest.config.ts` - Vitest test runner configuration
 - `tsconfig.json` - TypeScript project configuration
 - `tailwind.config.js` - TailwindCSS configuration with custom theme
 - `eslint.config.js` - ESLint configuration for code quality
