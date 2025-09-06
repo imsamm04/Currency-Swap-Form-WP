@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Token } from '../../types';
 import { TokenSelector } from './TokenSelector';
 import { cn } from '../../utils/cn';
@@ -33,17 +33,26 @@ export const TokenInput: React.FC<TokenInputProps> = ({
   excludeToken,
   className,
 }) => {
+  const [hasInteracted, setHasInteracted] = useState(false);
+
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     // Allow only numbers and decimal point
     if (value === '' || /^\d*\.?\d*$/.test(value)) {
       onAmountChange(value);
+      setHasInteracted(true);
     }
+  };
+
+  const handleTokenSelect = (selectedToken: Token) => {
+    onTokenSelect(selectedToken);
+    setHasInteracted(true);
   };
 
   const handleMaxClick = () => {
     if (balance && balance > 0) {
       onAmountChange(balance.toString());
+      setHasInteracted(true);
     }
   };
 
@@ -59,7 +68,7 @@ export const TokenInput: React.FC<TokenInputProps> = ({
         <div className="flex items-center justify-between mb-3">
           <TokenSelector
             selectedToken={token}
-            onTokenSelect={onTokenSelect}
+            onTokenSelect={handleTokenSelect}
             excludeToken={excludeToken}
             className="flex-1"
           />
@@ -102,7 +111,7 @@ export const TokenInput: React.FC<TokenInputProps> = ({
         </div>
       </div>
       
-      {error && (
+      {error && hasInteracted && (
         <p className="text-sm text-error-600">
           {error}
         </p>
